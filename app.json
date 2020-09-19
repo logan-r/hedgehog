@@ -1,0 +1,12 @@
+{
+  "name": "hackmit2020",
+  "displayName": "hackmit2020",
+  "expo": {
+    "name": "hackmit2020",
+    "slug": "hackmit2020",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
