@@ -8,9 +8,9 @@ import {
 } from "@expo-google-fonts/dev"
 
 import AppLoading from '../components/AppLoading'
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
-export default function LoginPage({ navigation }) {
+export default function LoginPage({ navigation, API, currentUser }) {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [keyboardVisible, setKeyboardVisible] = useState(false)
@@ -31,6 +31,11 @@ export default function LoginPage({ navigation }) {
 			keyboardDidHideListener.remove()
 		}
 	}, [])
+
+	// If user is logged in redirect to profile page
+	if (currentUser) {
+		navigation.push('Profile')
+	}
 
 	// Load fonts
 	let [fontsLoaded] = useFonts({
@@ -77,7 +82,7 @@ export default function LoginPage({ navigation }) {
 					placeholderTextColor="#3a301b"
 				/>
 				
-				<TouchableHighlight onPress={() => alert("sign up")}>
+				<TouchableHighlight onPress={() => API.login(email, password).then(()=>alert('works!')).catch(e=>alert(e))}>
 					<View style={styles.button}>
 						<Text style={{color: '#fff'}}>Login</Text>
 					</View>
