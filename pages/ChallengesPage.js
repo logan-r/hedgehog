@@ -24,29 +24,15 @@ export default function ProfilePage({ navigation, API, currentUser }) {
 	// While fonts are loading, display loading page
 	if (!fontsLoaded) {
 		return <AppLoading/>
-    }
+	}
 
 	return (
 		<View style={styles.container}>
-            <View style={styles.body}>
-                <Text style={styles.bigText}>{currentUser.email}</Text>
-                <Text>20 challenges completed</Text>
-			    <Text onPress={() => navigation.push('JoinChallenge')}>Back</Text>
-            </View>
+			<Text>Profile page!</Text>
 
-            <View style={styles.navBar}>
-                <View style={styles.tab}>
-                    <Text style={styles.colorWhiteFade}>Feed</Text>
-                </View>
-                <View style={styles.tab}>
-                    <Text style={styles.colorWhiteFade}>Challenges</Text>
-                </View>
-                <View style={styles.tab}>
-                    <Text style={styles.colorWhite}>Profile</Text>
-                </View>
-            </View>
+            <Button onPress={() => API.logout()} title="Logout"></Button>
 
-            <StatusBar style="auto" />
+			<StatusBar style="auto" />
 		</View>
 	)
 }
@@ -61,38 +47,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    body: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    navBar: {
-        backgroundColor: '#4F3CC5',
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'center'
-    },
-
-    tab: {
-        color: '#fff',
-        padding: 16,
-        paddingVertical: 20
-    },
-
-    colorWhite: {
-        color: '#fff'
-    },
-
-    bigText: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
-
-    colorWhiteFade: {
-        color: '#ffffff99'
-    },
-
 	button: {
 		alignItems: "center",
 		backgroundColor: "#cf4327",
