@@ -60,7 +60,7 @@ export default function FeedPage({ navigation, API, currentUser }) {
 						</View>
 						<Image style={styles.img} source={require('../../assets/img/reading.jpg')} resizeMode="cover" />
 						<View style={styles.caption}>
-							<Text style={styles.captionText}>Caption of like 100 words or less goes here #blessed</Text>
+							<Text style={styles.captionText}>Reading my favourite book "The Phantom Tollbooth" again</Text>
 						</View>
 					</View>
 				</View>
@@ -69,16 +69,16 @@ export default function FeedPage({ navigation, API, currentUser }) {
 					<View style={styles.post}>
 						<View style={styles.postHeading}>
 							<Text style={{fontWeight: 'bold', fontSize: 12}}>
-								LoganR
+								MichaelJ
 							</Text>
 							<View style={{flex: 1}}/>
 							<Text style={{fontSize: 12}}>
-								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Reading Challenge</Text>
+								<Text style={{color: '#444'}}>Day 5 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Cooking Challenge</Text>
 							</Text>
 						</View>
-						<Image style={styles.img} source={require('../../assets/img/reading.jpg')} resizeMode="cover" />
+						<Image style={styles.img} source={require('../../assets/img/pasta.jpg')} resizeMode="cover" />
 						<View style={styles.caption}>
-							<Text style={styles.captionText}>Caption of like 100 words or less goes here #blessed</Text>
+							<Text style={styles.captionText}>Made my first pasta dish. Very exciting</Text>
 						</View>
 					</View>
 				</View>
@@ -87,16 +87,232 @@ export default function FeedPage({ navigation, API, currentUser }) {
 					<View style={styles.post}>
 						<View style={styles.postHeading}>
 							<Text style={{fontWeight: 'bold', fontSize: 12}}>
-								LoganR
+								BillyJ
 							</Text>
 							<View style={{flex: 1}}/>
 							<Text style={{fontSize: 12}}>
-								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Reading Challenge</Text>
+								<Text style={{color: '#444'}}>Day 1 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Swimming Challenge</Text>
 							</Text>
 						</View>
-						<Image style={styles.img} source={require('../../assets/img/reading.jpg')} resizeMode="cover" />
+						<Image style={styles.img} source={require('../../assets/img/swim.jpg')} resizeMode="cover" />
 						<View style={styles.caption}>
-							<Text style={styles.captionText}>Caption of like 100 words or less goes here #blessed</Text>
+							<Text style={styles.captionText}>First day of swimming after breakimg my leg. It went better than I thought.</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								NoraR
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 4 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Sculpting Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/claysculpture.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Midway through learning to sculpt with clay</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								MarilynM
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 6 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Puzzle Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/macarons.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>These were really hard to make</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								JustinT
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Baking Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/puzzle.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Still working on my puzzle. Hopefully I'll be done by day 7!</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								RyanG
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Meditation Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/meditate.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Still trying to get the grasp on relaxing my mind</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								LennyK
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 4 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Biking Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/bike.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Biking every day is really helping me destress</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								TeddyR
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 5 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Gardening Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/bees.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Met a little friend while gardening today</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								RosalindF
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 7 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Chemistry Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/chem.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Created a little something today. Sad this is the last day of this challenge</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								MichaelJ
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Cooking Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/burger.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Made a really nice looking burger</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								JulieP
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 3 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Walking Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/squirrel.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>A squirrel came up to me on my walk today!</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								BobR
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 6 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Ski Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/ski.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Fell a lot today but got a goofy photo of me :)</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								MarieC
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 1 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Coding Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/coding.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Finally learning how to code!</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								JustinT
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 7 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Baking Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/cookies.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>I've improved my baking skills so much this week :)</Text>
 						</View>
 					</View>
 				</View>
