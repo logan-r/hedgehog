@@ -7,10 +7,10 @@ import {
 	Comfortaa_700Bold
 } from "@expo-google-fonts/dev"
 
-import AppLoading from '../components/AppLoading'
+import AppLoading from '../../components/AppLoading'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
-export default function ProfilePage({ navigation, API, currentUser }) {
+export default function ChallengesPage({ navigation, API, currentUser }) {
 	// If user is logged in redirect to profile page
 	if (!currentUser) {
 		navigation.push('Login')
@@ -29,21 +29,7 @@ export default function ProfilePage({ navigation, API, currentUser }) {
 	return (
 		<View style={styles.container}>
             <View style={styles.body}>
-                <Text style={styles.bigText}>{currentUser.email}</Text>
-                <Text>20 challenges completed</Text>
-			    <Text onPress={() => navigation.push('JoinChallenge')}>Back</Text>
-            </View>
-
-            <View style={styles.navBar}>
-                <View style={styles.tab}>
-                    <Text style={styles.colorWhiteFade}>Feed</Text>
-                </View>
-                <View style={styles.tab}>
-                    <Text style={styles.colorWhiteFade}>Challenges</Text>
-                </View>
-                <View style={styles.tab}>
-                    <Text style={styles.colorWhite}>Profile</Text>
-                </View>
+                <Text style={styles.bigText}>Challenges</Text>
             </View>
 
             <StatusBar style="auto" />
@@ -57,7 +43,7 @@ var { width } = Dimensions.get('window')
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f9f9f9',
         alignItems: 'center',
         justifyContent: 'center'
     },

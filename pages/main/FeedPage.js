@@ -7,10 +7,10 @@ import {
 	Comfortaa_700Bold
 } from "@expo-google-fonts/dev"
 
-import AppLoading from '../components/AppLoading'
+import AppLoading from '../../components/AppLoading'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
-export default function ProfilePage({ navigation, API, currentUser }) {
+export default function FeedPage({ navigation, API, currentUser }) {
 	// If user is logged in redirect to profile page
 	if (!currentUser) {
 		navigation.push('Login')
@@ -24,15 +24,15 @@ export default function ProfilePage({ navigation, API, currentUser }) {
 	// While fonts are loading, display loading page
 	if (!fontsLoaded) {
 		return <AppLoading/>
-	}
+    }
 
 	return (
 		<View style={styles.container}>
-			<Text>Profile page!</Text>
+            <View style={styles.body}>
+                <Text style={styles.bigText}>Feed</Text>
+            </View>
 
-            <Button onPress={() => API.logout()} title="Logout"></Button>
-
-			<StatusBar style="auto" />
+            <StatusBar style="auto" />
 		</View>
 	)
 }
@@ -43,10 +43,42 @@ var { width } = Dimensions.get('window')
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#f9f9f9',
         alignItems: 'center',
         justifyContent: 'center'
     },
+    body: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
+    navBar: {
+        backgroundColor: '#4F3CC5',
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'center'
+    },
+
+    tab: {
+        color: '#fff',
+        padding: 16,
+        paddingVertical: 20
+    },
+
+    colorWhite: {
+        color: '#fff'
+    },
+
+    bigText: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+
+    colorWhiteFade: {
+        color: '#ffffff99'
+    },
+
 	button: {
 		alignItems: "center",
 		backgroundColor: "#cf4327",

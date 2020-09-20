@@ -7,8 +7,8 @@ import "firebase/auth"
 
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
-import ProfilePage from './pages/ProfilePage'
 import AppLoading from './components/AppLoading'
+import MainPage from './pages/MainPage.js'
 import JoinChallengePage from './pages/JoinActivity'
 
 const Stack = createStackNavigator()
@@ -66,7 +66,9 @@ export default function App() {
 			>
 				<Stack.Screen name="Login">{props => <LoginPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
 				<Stack.Screen name="SignUp">{props => <SignUpPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
-				<Stack.Screen name="Profile">{props => <ProfilePage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
+
+				<Stack.Screen name="Main">{props => <MainPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
+
 				<Stack.Screen name="JoinChallenge">{props => <JoinChallengePage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
 			</Stack.Navigator>
 		</NavigationContainer>
