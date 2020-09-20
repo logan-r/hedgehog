@@ -34,7 +34,7 @@ export default function LoginPage({ navigation, API, currentUser }) {
 
 	// If user is logged in redirect to profile page
 	if (currentUser) {
-		navigation.push('Profile')
+		navigation.push('Main')
 	}
 
 	// Load fonts
