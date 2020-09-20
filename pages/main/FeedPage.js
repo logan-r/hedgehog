@@ -8,7 +8,7 @@ import {
 } from "@expo-google-fonts/dev"
 
 import AppLoading from '../../components/AppLoading'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
 export default function FeedPage({ navigation, API, currentUser }) {
 	// If user is logged in redirect to profile page
@@ -29,7 +29,7 @@ export default function FeedPage({ navigation, API, currentUser }) {
 	return (
 		<View style={styles.container}>
 
-            <View style={styles.body}>
+            <ScrollView style={styles.body}>
 				<View style={styles.challenges}>
 					<View style={{height: 100}}/>
 
@@ -48,13 +48,61 @@ export default function FeedPage({ navigation, API, currentUser }) {
 				</View>
 
 				<View style={styles.feed}>
-					<Text>
-						LoganR
-					</Text>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								LoganR
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Reading Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/reading.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Caption of like 100 words or less goes here #blessed</Text>
+						</View>
+					</View>
 				</View>
-            </View>
 
-            <StatusBar style="auto" />
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								LoganR
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Reading Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/reading.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Caption of like 100 words or less goes here #blessed</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<View style={styles.post}>
+						<View style={styles.postHeading}>
+							<Text style={{fontWeight: 'bold', fontSize: 12}}>
+								LoganR
+							</Text>
+							<View style={{flex: 1}}/>
+							<Text style={{fontSize: 12}}>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Reading Challenge</Text>
+							</Text>
+						</View>
+						<Image style={styles.img} source={require('../../assets/img/reading.jpg')} resizeMode="cover" />
+						<View style={styles.caption}>
+							<Text style={styles.captionText}>Caption of like 100 words or less goes here #blessed</Text>
+						</View>
+					</View>
+				</View>
+            </ScrollView>
+
+            <StatusBar style="auto" backgroundColor='#DADFE5' />
 		</View>
 	)
 }
@@ -71,10 +119,13 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 1,
-        alignItems: 'flex-start',
-		justifyContent: 'flex-start',
 		width: '100%'
-    },
+	},
+	
+	img: {
+		width: width,
+		height: width / 4032 * 3024
+	},
 
 	challenges: {
 		backgroundColor: '#dadfe5',
@@ -121,6 +172,23 @@ const styles = StyleSheet.create({
 		fontSize: 16,
 		marginBottom: 24,
 		fontWeight: 'bold'
+	},
+
+	post: {
+		marginVertical: 40
+	},
+	postHeading: {
+		width: '100%',
+		paddingHorizontal: 40,
+		flexDirection: 'row',
+		paddingBottom: 9
+	},
+	caption: {
+		paddingHorizontal: 40,
+		paddingTop: 12
+	},
+	captionText: {
+		color: '#333'
 	},
 
     colorWhite: {
