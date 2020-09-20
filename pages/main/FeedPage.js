@@ -127,7 +127,7 @@ export default function FeedPage({ navigation, API, currentUser }) {
 							</Text>
 							<View style={{flex: 1}}/>
 							<Text style={{fontSize: 12}}>
-								<Text style={{color: '#444'}}>Day 6 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Puzzle Challenge</Text>
+								<Text style={{color: '#444'}}>Day 6 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Baking Challenge</Text>
 							</Text>
 						</View>
 						<Image style={styles.img} source={require('../../assets/img/macarons.jpg')} resizeMode="cover" />
@@ -145,7 +145,7 @@ export default function FeedPage({ navigation, API, currentUser }) {
 							</Text>
 							<View style={{flex: 1}}/>
 							<Text style={{fontSize: 12}}>
-								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Baking Challenge</Text>
+								<Text style={{color: '#444'}}>Day 2 of </Text><Text style={{color: '#444', fontWeight: 'bold'}}>Puzzle Challenge</Text>
 							</Text>
 						</View>
 						<Image style={styles.img} source={require('../../assets/img/puzzle.jpg')} resizeMode="cover" />

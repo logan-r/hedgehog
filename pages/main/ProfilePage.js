@@ -31,7 +31,6 @@ export default function ProfilePage({ navigation, API, currentUser }) {
             <View style={styles.body}>
                 <Text style={styles.bigText}>{currentUser.email}</Text>
                 <Text>20 challenges completed</Text>
-			    <Text onPress={() => navigation.push('JoinChallenge')}>Add challenge</Text>
             </View>
 
             <StatusBar style="auto" />
