@@ -28,8 +28,30 @@ export default function FeedPage({ navigation, API, currentUser }) {
 
 	return (
 		<View style={styles.container}>
+
             <View style={styles.body}>
-                <Text style={styles.bigText}>Feed</Text>
+				<View style={styles.challenges}>
+					<View style={{height: 100}}/>
+
+					<Text style={styles.h1}>2 Challenges Remaining</Text>
+					<Text style={styles.blueText}>10 hours left to reach today’s goals</Text>
+
+					<View style={styles.goals}>
+						<View style={styles.goal}>
+							<Text>Go for a run</Text>
+						</View>
+
+						<View style={styles.goal}>
+							<Text>Practice guitar</Text>
+						</View>
+					</View>
+				</View>
+
+				<View style={styles.feed}>
+					<Text>
+						LoganR
+					</Text>
+				</View>
             </View>
 
             <StatusBar style="auto" />
@@ -49,22 +71,57 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        alignItems: 'flex-start',
+		justifyContent: 'flex-start',
+		width: '100%'
     },
 
-    navBar: {
-        backgroundColor: '#4F3CC5',
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'center'
-    },
+	challenges: {
+		backgroundColor: '#dadfe5',
+		width: '100%',
+		paddingHorizontal: 40
+	},
 
-    tab: {
-        color: '#fff',
-        padding: 16,
-        paddingVertical: 20
-    },
+	h1: {
+		fontSize: 21,
+		fontWeight: 'bold'
+	},
+	blueText: {
+		color: '#2774CF'
+	},
+
+	goals: {
+		marginVertical: 30,
+		flexDirection: 'row'
+	},
+	goal: {
+		backgroundColor: '#fff',
+		paddingVertical: 12,
+		paddingHorizontal: 18,
+		borderRadius: 16,
+		marginRight: 10,
+
+		shadowColor: "#000",
+		shadowOffset: {
+			width: 2,
+			height: 4,
+		},
+		shadowOpacity: 0.1,
+		shadowRadius: 8,
+
+		borderWidth: 2,
+		borderColor: '#d0d0d0'
+	},
+
+	completeGoalCTA: {
+		alignItems: 'flex-end'
+	},
+	completeGoalCTAText: {
+		color: '#2774CF',
+		fontSize: 16,
+		marginBottom: 24,
+		fontWeight: 'bold'
+	},
 
     colorWhite: {
         color: '#fff'

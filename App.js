@@ -67,7 +67,7 @@ export default function App() {
 				<Stack.Screen name="Login">{props => <LoginPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
 				<Stack.Screen name="SignUp">{props => <SignUpPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
 
-				<Stack.Screen name="Main">{props => <MainPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
+				<Stack.Screen name="Main">{props => <MainPage {...props} API={API} currentUser={currentUser} labelStyle={{padding: 20}} />}</Stack.Screen>
 
 				<Stack.Screen name="JoinChallenge">{props => <JoinChallengePage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
 			</Stack.Navigator>
