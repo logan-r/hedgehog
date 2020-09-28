@@ -75,7 +75,7 @@ export default function ChallengesPage({ navigation, API, currentUser }) {
 					</View>
 				</View>
 
-				<TouchableHighlight onPress={() => navigation.push('JoinChallenge')} style={{marginHorizontal: 40, marginTop: 30}}>
+				<TouchableHighlight onPress={() => navigation.push('JoinChallenge')} style={{marginHorizontal: 40, marginTop: 30}} underlayColor={ 'transparent' }>
 					<View style={{alignItems: 'center', backgroundColor: '#DADFE5', padding: 20, borderRadius: 16}}>
 						<Text>Find Your Next Challenge</Text>
 					</View>

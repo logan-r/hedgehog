@@ -67,6 +67,12 @@ export default function LoginPage({ navigation, API, currentUser }) {
 			<View style={styles.loginForm}>
 				<TextInput
 					style={styles.input}
+					placeholder="Username"
+					placeholderTextColor="#bbb"
+				/>
+
+				<TextInput
+					style={styles.input}
 					placeholder="Email"
 					onChangeText={text => setEmail(text)}
 					defaultValue={email}
@@ -82,7 +88,7 @@ export default function LoginPage({ navigation, API, currentUser }) {
 					placeholderTextColor="#bbb"
 				/>
 				
-				<TouchableHighlight onPress={() => API.signup(email, password).then(()=>alert('works!')).catch(e=>alert(e))}>
+				<TouchableHighlight onPress={() => API.signup(email, password).catch(e=>alert(e))} underlayColor={ 'transparent' }>
 					<View style={styles.button}>
 						<Text style={{color: '#fff'}}>Sign Up</Text>
 					</View>

@@ -31,9 +31,11 @@ export default function ProfilePage({ navigation, API, currentUser }) {
             <View style={styles.body}>
                 <Text style={styles.bigText}>{currentUser.email}</Text>
                 <Text>20 challenges completed</Text>
+				<View style={{height: 20}}/>
+				<Button title="Logout" onPress={() => API.logout()}></Button>
             </View>
 
-            <StatusBar style="auto" />
+            <StatusBar style="auto"/>
 		</View>
 	)
 }

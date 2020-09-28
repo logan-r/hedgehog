@@ -82,7 +82,7 @@ export default function LoginPage({ navigation, API, currentUser }) {
 					placeholderTextColor="#3a301b"
 				/>
 				
-				<TouchableHighlight onPress={() => API.login(email, password).then(()=>alert('works!')).catch(e=>alert(e))}>
+				<TouchableHighlight onPress={() => API.login(email, password).catch(e=>alert(e))} underlayColor={ 'transparent' }>
 					<View style={styles.button}>
 						<Text style={{color: '#fff'}}>Login</Text>
 					</View>

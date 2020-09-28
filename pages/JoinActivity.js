@@ -9,6 +9,7 @@ import {
 
 import AppLoading from '../components/AppLoading'
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 export default function JoinChallengePage({ navigation, API, currentUser }) {
 	// If user is logged in redirect to profile page
@@ -28,15 +29,44 @@ export default function JoinChallengePage({ navigation, API, currentUser }) {
 
 	return (
 		<View style={styles.container}>
-			<View style={{height: 80}}/>
-
-			<View style={styles.titleSection}>
-				<Text onPress={() => navigation.goBack()}>Back</Text>
-                <Text style={styles.title}>Try something new</Text>
-				<Text style={styles.description}>Select the type of activity to challenge yourself to do every day for a week</Text>
-			</View>
-
             <ScrollView style={styles.body}>
+				<View style={{height: 80}}/>
+
+				<View style={styles.titleSection}>
+					<Text onPress={() => navigation.goBack()}><MaterialCommunityIcons name='arrow-left' color='#333' size={28} /></Text>
+					<Text style={styles.title}>Try something new</Text>
+					<Text style={styles.description}>Select the type of activity to challenge yourself to do every day for a week</Text>
+				</View>
+
+				
+
+				<View style={styles.topic}>		
+					<View style={{position: 'relative'}}>		
+						<Image style={styles.imageCooking} source={require('../assets/img/cooking.png')} resizeMode="cover" />
+					</View>
+					<Text style={styles.topicTitle}>Master Chef</Text>
+					<Text style={styles.topicDescription}>Learn to cook, taste new cuisines, and potentially open up your own bakery by the end of the challenge!</Text>
+					<Text style={styles.link}>See culinary challenges</Text>
+				</View>
+
+				<View style={styles.topic}>		
+					<View style={{position: 'relative'}}>		
+						<Image style={styles.imageAcademic} source={require('../assets/img/academic.png')} resizeMode="cover" />
+					</View>
+					<Text style={styles.topicTitle}>Einstein 2.0</Text>
+					<Text style={styles.topicDescription}>Give your brain a workout by learning something new every day.</Text>
+					<Text style={styles.link}>See academic challenges</Text>
+				</View>
+
+				<View style={styles.topic}>		
+					<View style={{position: 'relative'}}>		
+						<Image style={styles.imageAdventure} source={require('../assets/img/adventure.png')} resizeMode="cover" />
+					</View>
+					<Text style={styles.topicTitle}>The Adventurer</Text>
+					<Text style={styles.topicDescription}>Explore the hidden world to see yourself in a new perspective.</Text>
+					<Text style={styles.link}>See adventure challenges</Text>
+				</View>
+				
                 <View style={styles.topic}>
 					<View style={{position: 'relative'}}>		
 						<Image style={styles.imageFitness} source={require('../assets/img/fitness.png')} resizeMode="cover" />
@@ -64,23 +94,7 @@ export default function JoinChallengePage({ navigation, API, currentUser }) {
 					<Text style={styles.link}>See brain-testing challenges</Text>
 				</View>
 
-				<View style={styles.topic}>		
-					<View style={{position: 'relative'}}>		
-						<Image style={styles.imageCooking} source={require('../assets/img/cooking.png')} resizeMode="cover" />
-					</View>
-					<Text style={styles.topicTitle}>Master Chef</Text>
-					<Text style={styles.topicDescription}>Learn to cook, taste new cuisines, and potentially open up your own bakery by the end of the challenge!</Text>
-					<Text style={styles.link}>See culinary challenges</Text>
-				</View>
-
-				<View style={styles.topic}>		
-					<View style={{position: 'relative'}}>		
-						<Image style={styles.imageAcademic} source={require('../assets/img/academic.png')} resizeMode="cover" />
-					</View>
-					<Text style={styles.topicTitle}>Einstein 2.0</Text>
-					<Text style={styles.topicDescription}>Give your brain a workout by learning something new every day.</Text>
-					<Text style={styles.link}>See academic challenges</Text>
-				</View>
+				
 
 				<View style={styles.topic}>		
 					<View style={{position: 'relative'}}>		
@@ -91,18 +105,9 @@ export default function JoinChallengePage({ navigation, API, currentUser }) {
 					<Text style={styles.link}>See self-improvement challenges</Text>
 				</View>
 
-				<View style={styles.topic}>		
-					<View style={{position: 'relative'}}>		
-						<Image style={styles.imageAdventure} source={require('../assets/img/adventure.png')} resizeMode="cover" />
-					</View>
-					<Text style={styles.topicTitle}>The Adventurer</Text>
-					<Text style={styles.topicDescription}>Explore the hidden world to see yourself in a new perspective.</Text>
-					<Text style={styles.link}>See adventure challenges</Text>
-				</View>
-
             </ScrollView>
 
-            <StatusBar style="auto" />
+            <StatusBar style="auto" backgroundColor="#DADFE5" />
 		</View>
 	)
 }
