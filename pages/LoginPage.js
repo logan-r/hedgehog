@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions, Keyboard, Pressable } from 'react-native'
+import React, { useState, useContext } from 'react'
+import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions, Pressable } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
 import {
@@ -9,33 +9,17 @@ import {
 
 import AppLoading from '../components/AppLoading'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import useKeyboardVisible from '../utils/hooks/useKeyboardVisible'
 
-export default function LoginPage({ navigation, API, currentUser }) {
+export default function LoginPage({ navigation }) {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
-	const [keyboardVisible, setKeyboardVisible] = useState(false)
-
+	
 	// Track if keyboard is visible
-	useEffect(() => {
-		const keyboardDidShowListener = Keyboard.addListener(
-			"keyboardDidShow",
-			() => setKeyboardVisible(true)
-		)
-		const keyboardDidHideListener = Keyboard.addListener(
-			"keyboardDidHide",
-			() => setKeyboardVisible(false)
-		)
+	const isKeyboardVisible = useKeyboardVisible()
 
-		return () => {
-			keyboardDidShowListener.remove()
-			keyboardDidHideListener.remove()
-		}
-	}, [])
-
-	// If user is logged in redirect to profile page
-	if (currentUser) {
-		navigation.push('Main')
-	}
+	// Get info on authentication state
+	const auth = useContext(AuthContext)
 
 	// Load fonts
 	let [fontsLoaded] = useFonts({
@@ -52,7 +36,7 @@ export default function LoginPage({ navigation, API, currentUser }) {
 			<View style={{height: 120}}></View>
 
 			{
-				!keyboardVisible && <>
+				!isKeyboardVisible && <>
 					<View>
 						<Image style={styles.heroImage} source={require('../assets/img/canoe-with-bg.png')} resizeMode="cover" />
 					</View>
@@ -82,7 +66,7 @@ export default function LoginPage({ navigation, API, currentUser }) {
 					placeholderTextColor="#3a301b"
 				/>
 				
-				<TouchableHighlight onPress={() => API.login(email, password).catch(e=>alert(e))} underlayColor={ 'transparent' }>
+				<TouchableHighlight onPress={() => auth.actions.login(email, password).catch(e=>alert(e))} underlayColor={ 'transparent' }>
 					<View style={styles.button}>
 						<Text style={{color: '#fff'}}>Login</Text>
 					</View>

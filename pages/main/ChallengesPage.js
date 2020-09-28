@@ -12,12 +12,7 @@ import {
 import AppLoading from '../../components/AppLoading'
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
-export default function ChallengesPage({ navigation, API, currentUser }) {
-	// If user is logged in redirect to profile page
-	if (!currentUser) {
-		navigation.push('Login')
-	}
-    
+export default function ChallengesPage({ navigation }) {
 	// Load fonts
 	let [fontsLoaded] = useFonts({
 		Comfortaa_700Bold

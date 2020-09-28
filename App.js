@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -7,11 +7,13 @@ import "firebase/auth"
 
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
-import AppLoading from './components/AppLoading'
 import MainPage from './pages/MainPage.js'
 import JoinChallengePage from './pages/JoinActivity'
+import SplashPage from './pages/SplashPage'
 
 const Stack = createStackNavigator()
+
+import AuthContext from './contexts/AuthContext'
 
 var firebaseConfig = {
     apiKey: "AIzaSyDHm5zsEnnl6RPKBzIFPjeeDWUX28gUKok",
@@ -27,50 +29,75 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
 
-const API = {
-	login: (email, password) => auth.signInWithEmailAndPassword(email, password),
-	signup: (email, password) => auth.createUserWithEmailAndPassword(email, password),
-	logout: () => auth.signOut()
-}
-
 export default function App() {
-	// Track current user
-	const [currentUser, setCurrentUser] = useState(null)
-	const [userInitialized, setUserInitialized] = useState(false)
+	// App authetication state and actions that can be performed to manipulate that state
+	const [authState, authDispatch] = useReducer(
+		(prevState, action) => {
+			switch (action.type) {
+				case 'SIGN_IN':
+					return {
+						...prevState,
+						isLoading: false,
+						currentUser: action.user
+					}
+				case 'SIGN_OUT':
+					return {
+						...prevState,
+						isLoading: false,
+						currentUser: false
+					}
+			}
+		},
+
+		// Initial app state
+		{
+			currentUser: false,
+			isLoading: true
+		}
+	)
 
 	// Track when the current user updates
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged(function(user) {
-			// Record that user state (whether logged in or not) has been found
-			setUserInitialized(true)
-
 			if (user) {
-				setCurrentUser(user)
+				authDispatch({ type: 'SIGN_IN', user })
 			} else {
-				setCurrentUser(false)
+				authDispatch({ type: 'SIGN_OUT' })
 			}
 		})
 	}, [])
 
-	// If user hasn't been initialized yet then 
-	if (!userInitialized) {
-		return <AppLoading></AppLoading>
+	// 
+	const authContext = {
+		...authState,
+		actions: {
+			login: (email, password) => auth.signInWithEmailAndPassword(email, password),
+			signup: (email, password) => auth.createUserWithEmailAndPassword(email, password),
+			logout: () => auth.signOut()
+		}
 	}
 
 	return (
-		<NavigationContainer>
-			<Stack.Navigator
-				screenOptions={{
-					headerShown: false
-				}}
-			>
-				<Stack.Screen name="Login">{props => <LoginPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
-				<Stack.Screen name="SignUp">{props => <SignUpPage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
-
-				<Stack.Screen name="Main">{props => <MainPage {...props} API={API} currentUser={currentUser} labelStyle={{padding: 20}} />}</Stack.Screen>
-
-				<Stack.Screen name="JoinChallenge">{props => <JoinChallengePage {...props} API={API} currentUser={currentUser} />}</Stack.Screen>
-			</Stack.Navigator>
-		</NavigationContainer>
+		<AuthContext.Provider value={authContext}>
+			<NavigationContainer>
+				<Stack.Navigator screenOptions={{headerShown: false}}>
+					{
+						authState.isLoading ? 
+							<>
+								<Stack.Screen name="Splash" component={SplashPage} />
+							</> :
+						!authState.currentUser ?
+							<>
+								<Stack.Screen name="Login" component={LoginPage} />
+								<Stack.Screen name="SignUp" component={SignUpPage} />
+							</> :
+							<>
+								<Stack.Screen name="Main" component={MainPage} />
+								<Stack.Screen name="JoinChallenge" component={JoinChallengePage} />
+							</>
+					}
+				</Stack.Navigator>
+			</NavigationContainer>
+		</AuthContext.Provider>
 	)
 }

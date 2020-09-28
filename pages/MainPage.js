@@ -11,7 +11,7 @@ import ChallengesPage from './main/ChallengesPage'
 
 const Tab = createBottomTabNavigator()
 
-export default function MainPage({ navigation, API, currentUser }) {
+export default function MainPage() {
 	return (
 		<Tab.Navigator
             screenOptions={({ route }) => ({
@@ -36,9 +36,9 @@ export default function MainPage({ navigation, API, currentUser }) {
                 inactiveTintColor: '#a5a9b0',
             }}
         >
-            <Tab.Screen name="Feed">{props => <FeedPage {...props} API={API} currentUser={currentUser} />}</Tab.Screen>
-            <Tab.Screen name="Challenges">{props => <ChallengesPage {...props} API={API} currentUser={currentUser} />}</Tab.Screen>
-            <Tab.Screen name="Profile">{props => <ProfilePage {...props} API={API} currentUser={currentUser} />}</Tab.Screen>
+            <Tab.Screen name="Feed" component={FeedPage} />
+            <Tab.Screen name="Challenges" component={ChallengesPage} />
+            <Tab.Screen name="Profile" component={ProfilePage} />
         </Tab.Navigator>
 	)
 }

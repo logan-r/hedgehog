@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions, Button } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
@@ -9,30 +9,30 @@ import {
 
 import AppLoading from '../../components/AppLoading'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { auth } from 'firebase'
+import AuthContext from '../../contexts/AuthContext'
 
-export default function ProfilePage({ navigation, API, currentUser }) {
-	// If user is logged in redirect to profile page
-	if (!currentUser) {
-		navigation.push('Login')
-	}
-    
+export default function ProfilePage() {
 	// Load fonts
 	let [fontsLoaded] = useFonts({
 		Comfortaa_700Bold
 	})
 
+	// Get info on authentication state
+	const auth = useContext(AuthContext)
+
 	// While fonts are loading, display loading page
 	if (!fontsLoaded) {
 		return <AppLoading/>
-    }
+	}
 
 	return (
 		<View style={styles.container}>
             <View style={styles.body}>
-                <Text style={styles.bigText}>{currentUser.email}</Text>
+                <Text style={styles.bigText}>{auth.currentUser.email}</Text>
                 <Text>20 challenges completed</Text>
 				<View style={{height: 20}}/>
-				<Button title="Logout" onPress={() => API.logout()}></Button>
+				<Button title="Logout" onPress={() => auth.actions.logout()}></Button>
             </View>
 
             <StatusBar style="auto"/>

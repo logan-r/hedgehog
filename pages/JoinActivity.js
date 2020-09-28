@@ -11,12 +11,7 @@ import AppLoading from '../components/AppLoading'
 import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function JoinChallengePage({ navigation, API, currentUser }) {
-	// If user is logged in redirect to profile page
-	if (!currentUser) {
-		navigation.push('Login')
-	}
-    
+export default function JoinChallengePage({ navigation }) {    
 	// Load fonts
 	let [fontsLoaded] = useFonts({
 		Comfortaa_700Bold
