@@ -11,11 +11,14 @@ import MainPage from './pages/MainPage.js'
 import JoinChallengePage from './pages/JoinActivity'
 import SplashPage from './pages/SplashPage'
 
-const Stack = createStackNavigator()
-
 import AuthContext from './contexts/AuthContext'
 
-var firebaseConfig = {
+import {
+	useFonts,
+	Comfortaa_700Bold
+} from "@expo-google-fonts/dev"
+
+const firebaseConfig = {
     apiKey: "AIzaSyDHm5zsEnnl6RPKBzIFPjeeDWUX28gUKok",
     authDomain: "hedgehog-e574b.firebaseapp.com",
     databaseURL: "https://hedgehog-e574b.firebaseio.com",
@@ -25,11 +28,18 @@ var firebaseConfig = {
     appId: "1:736707150699:web:a5322710e49185f5db822e",
     measurementId: "G-DVESHNN1EE"
 }
-  
+
 firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
 
+const Stack = createStackNavigator()
+
 export default function App() {
+	// Load fonts
+	let [fontsLoaded] = useFonts({
+		Comfortaa_700Bold
+	})
+
 	// App authetication state and actions that can be performed to manipulate that state
 	const [authState, authDispatch] = useReducer(
 		(prevState, action) => {
@@ -67,7 +77,7 @@ export default function App() {
 		})
 	}, [])
 
-	// 
+	// Context that store info and actions that can be performed on user auth
 	const authContext = {
 		...authState,
 		actions: {
@@ -82,7 +92,7 @@ export default function App() {
 			<NavigationContainer>
 				<Stack.Navigator screenOptions={{headerShown: false}}>
 					{
-						authState.isLoading ? 
+						authState.isLoading || !fontsLoaded ? 
 							<>
 								<Stack.Screen name="Splash" component={SplashPage} />
 							</> :

@@ -1,30 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions, Button } from 'react-native'
+import React, { useContext } from 'react'
+import { StyleSheet, Text, View, Dimensions, Button } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-import {
-	useFonts,
-	Comfortaa_700Bold
-} from "@expo-google-fonts/dev"
-
-import AppLoading from '../../components/AppLoading'
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
-import { auth } from 'firebase'
 import AuthContext from '../../contexts/AuthContext'
 
 export default function ProfilePage() {
-	// Load fonts
-	let [fontsLoaded] = useFonts({
-		Comfortaa_700Bold
-	})
-
 	// Get info on authentication state
 	const auth = useContext(AuthContext)
-
-	// While fonts are loading, display loading page
-	if (!fontsLoaded) {
-		return <AppLoading/>
-	}
 
 	return (
 		<View style={styles.container}>

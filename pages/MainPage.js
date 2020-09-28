@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { View, Text } from 'react-native'
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 

@@ -1,13 +1,7 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions, Pressable } from 'react-native'
+import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-import {
-	useFonts,
-	Comfortaa_700Bold
-} from "@expo-google-fonts/dev"
-
-import AppLoading from '../components/AppLoading'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import useKeyboardVisible from '../utils/hooks/useKeyboardVisible'
 import AuthContext from '../contexts/AuthContext'
@@ -21,16 +15,6 @@ export default function LoginPage({ navigation }) {
 
 	// Get info on authentication state
 	const auth = useContext(AuthContext)
-
-	// Load fonts
-	let [fontsLoaded] = useFonts({
-		Comfortaa_700Bold
-	})
-
-	// While fonts are loading, display loading page
-	if (!fontsLoaded) {
-		return <AppLoading/>
-	}
 
 	return (
 		<View style={styles.container}>

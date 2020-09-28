@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableHighlight, Image, Dimensions, Button } from 'react-native'
+import React from 'react'
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-import {
-	useFonts,
-	Comfortaa_700Bold
-} from "@expo-google-fonts/dev"
-
-import AppLoading from '../../components/AppLoading'
-import { ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 
 export default function FeedPage() {
-	// Load fonts
-	let [fontsLoaded] = useFonts({
-		Comfortaa_700Bold
-	})
-
-	// While fonts are loading, display loading page
-	if (!fontsLoaded) {
-		return <AppLoading/>
-    }
-
 	return (
 		<View style={styles.container}>
 
