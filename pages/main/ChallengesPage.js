@@ -1,18 +1,17 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableHighlight, Image, Dimensions } from 'react-native'
+import { StyleSheet, Text, View, TouchableHighlight, Image } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
+import { Styles, Typography, Base } from '../../styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { ScrollView } from 'react-native-gesture-handler'
 
 export default function ChallengesPage({ navigation }) {
 	return (
-		<View style={styles.container}>
-
-            <ScrollView style={styles.body}>
-				<View style={{height: 100}}/>
-				<Text style={styles.h1}>Your Challenges</Text>
+		<View style={{...Base.pageContainer, paddingHorizontal: 0}}>
+            <ScrollView style={{width: '100%'}}>
+				<Text style={[Styles.h1, {paddingHorizontal: Base.pagePadding.paddingHorizontal}]}>Your Challenges</Text>
 
 				<View style={styles.topic}>
 					<View style={{position: 'relative'}}>		
@@ -66,26 +65,7 @@ export default function ChallengesPage({ navigation }) {
 	)
 }
 
-// Get screen dimensions
-var { width } = Dimensions.get('window')
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f9f9f9',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    body: {
-        flex: 1,
-		width: '100%'
-	},
-
-	h1: {
-		fontSize: 21,
-		fontWeight: 'bold',
-		paddingHorizontal: 40
-	},
 	blueText: {
 		color: '#2774CF'
 	},

@@ -16,17 +16,25 @@ import AuthContext from './contexts/AuthContext'
 import {
 	useFonts,
 	Comfortaa_700Bold
-} from "@expo-google-fonts/dev"
+} from '@expo-google-fonts/comfortaa'
+
+import { 
+	Hind_300Light,
+	Hind_400Regular,
+	Hind_500Medium,
+	Hind_600SemiBold,
+	Hind_700Bold 
+  } from '@expo-google-fonts/hind'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDHm5zsEnnl6RPKBzIFPjeeDWUX28gUKok",
-    authDomain: "hedgehog-e574b.firebaseapp.com",
-    databaseURL: "https://hedgehog-e574b.firebaseio.com",
-    projectId: "hedgehog-e574b",
-    storageBucket: "hedgehog-e574b.appspot.com",
-    messagingSenderId: "736707150699",
-    appId: "1:736707150699:web:a5322710e49185f5db822e",
-    measurementId: "G-DVESHNN1EE"
+    apiKey: 'AIzaSyDHm5zsEnnl6RPKBzIFPjeeDWUX28gUKok',
+    authDomain: 'hedgehog-e574b.firebaseapp.com',
+    databaseURL: 'https://hedgehog-e574b.firebaseio.com',
+    projectId: 'hedgehog-e574b',
+    storageBucket: 'hedgehog-e574b.appspot.com',
+    messagingSenderId: '736707150699',
+    appId: '1:736707150699:web:a5322710e49185f5db822e',
+    measurementId: 'G-DVESHNN1EE'
 }
 
 firebase.initializeApp(firebaseConfig)
@@ -37,6 +45,11 @@ const Stack = createStackNavigator()
 export default function App() {
 	// Load fonts
 	let [fontsLoaded] = useFonts({
+		Hind_300Light,
+		Hind_400Regular,
+		Hind_500Medium,
+		Hind_600SemiBold,
+		Hind_700Bold,
 		Comfortaa_700Bold
 	})
 
