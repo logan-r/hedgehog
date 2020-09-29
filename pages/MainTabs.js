@@ -1,41 +1,43 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { AntDesign } from '@expo/vector-icons'
 
 import ProfilePage from './main/ProfilePage'
 import FeedPage from './main/FeedPage'
 import ChallengesPage from './main/ChallengesPage'
+import TabBar from '../components/TabBar'
+import { Colors } from '../styles'
 
 const Tab = createBottomTabNavigator()
 
-export default function MainPage() {
+export default function MainTabs() {
 	return (
 		<Tab.Navigator
+            tabBar={TabBar}
+
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
-                    let iconName
-
                     if (route.name === 'Feed') {
-                        iconName = 'format-list-bulleted'
+                        return <AntDesign name="picture" color={color} size={size} />
                     } else if (route.name === 'Challenges') {
-                        iconName = 'medal'
+                        return <AntDesign name="Trophy" color={color} size={size} />
                     } else if (route.name === 'Profile') {
-                        iconName = 'account-circle'
+                        return <AntDesign name="user" color={color} size={size} />
                     }
-
-                    // You can return any component that you like here!
-                    return <MaterialCommunityIcons name={iconName} color={color} size={size} />
                 }
             })}
 
+            swipeEnabled={true}
+
             tabBarOptions={{
-                activeTintColor: '#cf4327',
-                inactiveTintColor: '#a5a9b0',
+                activeTintColor: Colors.marigold,
+                inactiveTintColor: Colors.black40,
+                showIcon: true
             }}
         >
-            <Tab.Screen name="Feed" component={FeedPage} />
             <Tab.Screen name="Challenges" component={ChallengesPage} />
+            <Tab.Screen name="Feed" component={FeedPage} />
             <Tab.Screen name="Profile" component={ProfilePage} />
         </Tab.Navigator>
 	)

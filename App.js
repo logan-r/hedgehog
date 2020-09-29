@@ -5,11 +5,11 @@ import { createStackNavigator } from '@react-navigation/stack'
 import * as firebase from 'firebase'
 import "firebase/auth"
 
+import SplashPage from './pages/SplashPage'
 import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
-import MainPage from './pages/MainPage.js'
 import JoinChallengePage from './pages/JoinActivity'
-import SplashPage from './pages/SplashPage'
+import MainTabs from './pages/MainTabs'
 
 import AuthContext from './contexts/AuthContext'
 
@@ -102,7 +102,7 @@ export default function App() {
 								<Stack.Screen name="SignUp" component={SignUpPage} />
 							</> :
 							<>
-								<Stack.Screen name="Main" component={MainPage} />
+								<Stack.Screen name="Main" component={MainTabs} />
 								<Stack.Screen name="JoinChallenge" component={JoinChallengePage} />
 							</>
 					}

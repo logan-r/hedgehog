@@ -4,6 +4,8 @@ import { StatusBar } from 'expo-status-bar'
 
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import useKeyboardVisible from '../utils/hooks/useKeyboardVisible'
+import { Colors } from '../styles'
+import AuthContext from '../contexts/AuthContext'
 
 export default function LoginPage({ navigation }) {
 	const [email, setEmail] = useState('')
@@ -75,9 +77,9 @@ var { width } = Dimensions.get('window')
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#e38724',
         alignItems: 'center',
-        justifyContent: 'center'
+		justifyContent: 'center',
+		backgroundColor: Colors.marigold
     },
 	button: {
 		alignItems: "center",
