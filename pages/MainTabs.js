@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 import { AntDesign } from '@expo/vector-icons'
 
@@ -9,13 +9,13 @@ import ChallengesPage from './main/ChallengesPage'
 import TabBar from '../components/TabBar'
 import { Colors } from '../styles'
 
-const Tab = createBottomTabNavigator()
+const Tab = createMaterialTopTabNavigator()
 
 export default function MainTabs() {
 	return (
 		<Tab.Navigator
             tabBar={TabBar}
-
+            tabBarPosition="bottom"
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     if (route.name === 'Feed') {
