@@ -11,7 +11,16 @@ const Styles = StyleSheet.create({
 
     h1: {
         ...Typography.heading,
-        ...Typography.xxxl
+        ...Typography.xxxl,
+        marginBottom: 4
+    },
+    subtitle: {
+        ...Typography.p,
+        ...Typography.lg,
+        ...Typography.muted
+    },
+    p: {
+        ...Typography.p
     },
     text: {
         ...Typography.body,

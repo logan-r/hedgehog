@@ -5,14 +5,24 @@ export const pagePadding = {
     paddingTop: 110
 }
 
+export const modalPadding = {
+    paddingHorizontal: 40,
+    paddingTop: 70
+}
+
 export const pageWrapper = {
+    flex: 1,
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'flex-start'
 }
 
 export const pageBackground = {
-    backgroundColor: Colors.grey05
+    backgroundColor: Colors.black05
+}
+
+export const modalBackground = {
+    backgroundColor: Colors.black20
 }
 
 // Styles

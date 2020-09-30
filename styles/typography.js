@@ -5,7 +5,7 @@ export const title = {
 }
 
 export const heading = {
-    fontFamily: 'Hind_700Bold'
+    fontFamily: 'Hind_600SemiBold'
 }
 
 export const body = {
@@ -44,6 +44,29 @@ export const md = {
     fontSize: 14
 }
 
+export const sm = {
+    fontSize: 12
+}
+
+export const xs = {
+    fontSize: 11
+}
+
+export const xxs = {
+    fontSize: 10
+}
+
+export const xxxs = {
+    fontSize: 9
+}
+
 export const muted = {
     color: Colors.black60
+}
+
+// Styles
+export const p = {
+    ...body,
+    ...md,
+    lineHeight: 23
 }

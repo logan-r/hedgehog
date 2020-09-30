@@ -23,7 +23,7 @@ export default function LoginPage({ navigation }) {
 			{
 				!isKeyboardVisible && <>
 					<View>
-						<Image style={styles.heroImage} source={require('../assets/img/beach-party.png')} resizeMode="cover" />
+						<Image style={styles.heroImage} source={require('../assets/img/clipart/beach-party.png')} resizeMode="cover" />
 					</View>
 
 					<View style={styles.heading}>

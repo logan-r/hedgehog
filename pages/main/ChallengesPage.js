@@ -15,7 +15,7 @@ export default function ChallengesPage({ navigation }) {
 
 				<View style={styles.topic}>
 					<View style={{position: 'relative'}}>		
-						<Image style={styles.imageFitness} source={require('../../assets/img/fitness.png')} resizeMode="cover" />
+						<Image style={styles.imageFitness} source={require('../../assets/img/clipart/fitness.png')} resizeMode="cover" />
 					</View>
 					<Text style={styles.challengeHeading}>Every day for a week</Text>
 					<Text style={styles.challengeTitle}>Go for a run</Text>
@@ -35,7 +35,7 @@ export default function ChallengesPage({ navigation }) {
 
 				<View style={styles.topic}>
 					<View style={{position: 'relative'}}>
-						<Image style={styles.imageArt} source={require('../../assets/img/art.png')} resizeMode="cover" />
+						<Image style={styles.imageArt} source={require('../../assets/img/clipart/art.png')} resizeMode="cover" />
 					</View>
 					<Text style={styles.challengeHeading}>Every day for a week</Text>
 					<Text style={styles.challengeTitle}>Write a poem</Text>
@@ -53,7 +53,7 @@ export default function ChallengesPage({ navigation }) {
 					</View>
 				</View>
 
-				<TouchableHighlight onPress={() => navigation.push('JoinChallenge')} style={{marginHorizontal: 40, marginTop: 30}} underlayColor={ 'transparent' }>
+				<TouchableHighlight onPress={() => navigation.push('NewChallenge')} style={{marginHorizontal: 40, marginTop: 30}} underlayColor={ 'transparent' }>
 					<View style={{alignItems: 'center', backgroundColor: '#DADFE5', padding: 20, borderRadius: 16}}>
 						<Text>Find Your Next Challenge</Text>
 					</View>
