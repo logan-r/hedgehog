@@ -11,7 +11,7 @@ export default function BackArrow() {
     const navigation = useNavigation()
 
     return (
-        <Text onPress={navigation.goBack} style={{marginBottom: 12}}>
+        <Text onPress={navigation.goBack} style={{paddingBottom: 12}}>
             <AntDesign name="arrowleft" size={28} color={Colors.grey70} />
         </Text>
     )

@@ -35,7 +35,7 @@ export default function TopicBox({topic, name, description, clipart, clipartHeig
             }
             <Text style={s.title}>{name}</Text>
             <Text style={s.label}>{topic}</Text>
-            <Text style={s.desc}>{description}</Text>
+            <Text style={s.description}>{description}</Text>
         </View>
     )
 }
@@ -64,10 +64,10 @@ const s = StyleSheet.create({
 
     title: {
         ...Typography.title,
-        ...Typography.sm
+        fontSize: 13
     },
 
-    desc: {
+    description: {
         ...Typography.xs,
         lineHeight: 16,
         color: Colors.black60,
