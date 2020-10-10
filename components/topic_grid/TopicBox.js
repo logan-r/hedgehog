@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import { Colors, Typography } from '../../styles'
 
 /**
@@ -17,7 +17,7 @@ export default function TopicBox({topic, name, description, onPress, clipart, cl
     const clipartDimensions = Image.resolveAssetSource(clipart)
 
     return (
-        <TouchableHighlight onPress={onPress} style={s.box} underlayColor="transparent">
+        <Pressable onPress={onPress} style={({ pressed }) => pressed ? [localStyles.box, {backgroundColor: Colors.black10}] : localStyles.box} underlayColor="transparent">
             <>
                 {
                     clipart &&
@@ -35,15 +35,15 @@ export default function TopicBox({topic, name, description, onPress, clipart, cl
                         />
                     </View>
                 }
-                <Text style={s.title}>{name}</Text>
-                <Text style={s.label}>{topic}</Text>
-                <Text style={s.description}>{description}</Text>
+                <Text style={localStyles.title}>{name}</Text>
+                <Text style={localStyles.label}>{topic}</Text>
+                <Text style={localStyles.description}>{description}</Text>
             </>
-        </TouchableHighlight>
+        </Pressable>
     )
 }
 
-const s = StyleSheet.create({
+const localStyles = StyleSheet.create({
     box: {
         backgroundColor: Colors.white,
         width: '47%',
