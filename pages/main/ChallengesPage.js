@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableHighlight, Image } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-import { Styles, Typography, Base } from '../../styles'
+import { Styles, Base } from '../../styles'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 import { ScrollView } from 'react-native-gesture-handler'

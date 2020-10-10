@@ -18,7 +18,7 @@ export const autumn = '#F68A59'
 // White, greys, black (generated from black20)
 export const white = '#FFFFFF'
 export const black05 = '#F3F5F7'
-export const black10 = '#E7EBEF'
+export const black10 = '#E8ECF1'
 export const black20 = '#DAE0E7'
 export const black60 = '#696E74'
 export const black90 = '#101418'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native'
 import { Colors, Typography } from '../../styles'
 
 /**
@@ -8,35 +8,38 @@ import { Colors, Typography } from '../../styles'
  * @param {string} topic plain short description of topic (e.g. fitness, culinary arts)
  * @param {string} name more fun name for topic (e.g. Picasso, Master Chef)
  * @param {string} description longer description of this topic
+ * @param {function} onPress function called when this topic box is pressed
  * @param {Image} clipart image to be displayed for this topic
  * @param {number} clipartHeight size to rener the clipart at (width will be adjusted to preserve aspect ratio)
  * @param {number} clipartPadding extra padding to apply between clipart and title
  */
-export default function TopicBox({topic, name, description, clipart, clipartHeight, clipartPadding}) {
+export default function TopicBox({topic, name, description, onPress, clipart, clipartHeight, clipartPadding}) {
     const clipartDimensions = Image.resolveAssetSource(clipart)
 
     return (
-        <View style={s.box}>
-            {
-                clipart &&
-                <View style={{position: 'relative'}}>		
-                    <Image
-                        style={{
-                            position: 'absolute',
-                            left: clipartPadding[0],
-                            top: -(clipartHeight + clipartPadding[1]),
-                            width: clipartHeight / clipartDimensions.height * clipartDimensions.width,
-                            height: clipartHeight
-                        }}
-                        resizeMode="cover"
-                        source={clipart}
-                    />
-                </View>
-            }
-            <Text style={s.title}>{name}</Text>
-            <Text style={s.label}>{topic}</Text>
-            <Text style={s.description}>{description}</Text>
-        </View>
+        <TouchableHighlight onPress={onPress} style={s.box} underlayColor={ 'transparent' }>
+            <>
+                {
+                    clipart &&
+                    <View style={{position: 'relative'}}>		
+                        <Image
+                            style={{
+                                position: 'absolute',
+                                left: clipartPadding[0],
+                                top: -(clipartHeight + clipartPadding[1]),
+                                width: clipartHeight / clipartDimensions.height * clipartDimensions.width,
+                                height: clipartHeight
+                            }}
+                            resizeMode="cover"
+                            source={clipart}
+                        />
+                    </View>
+                }
+                <Text style={s.title}>{name}</Text>
+                <Text style={s.label}>{topic}</Text>
+                <Text style={s.description}>{description}</Text>
+            </>
+        </TouchableHighlight>
     )
 }
 

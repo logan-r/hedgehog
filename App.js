@@ -12,7 +12,8 @@ import SignUpPage from './pages/SignUpPage'
 
 import MainTabs from './pages/MainTabs'
 
-import NewChallengeModal from './pages/new_challenge/NewChallengeModal'
+import NewChallengeModal_1Type from './pages/new_challenge/NewChallengeModal_1Type'
+import NewChallengeModal_2Task from './pages/new_challenge/NewChallengeModal_2Task'
 
 import AuthContext from './contexts/AuthContext'
 
@@ -120,7 +121,8 @@ export default function App() {
 							<>
 								<Stack.Screen name="Main" component={MainTabs} />
 
-								<Stack.Screen name="NewChallenge" component={NewChallengeModal} />
+								<Stack.Screen name="NewChallenge" component={NewChallengeModal_1Type} />
+								<Stack.Screen name="NewChallenge: Step 2" component={NewChallengeModal_2Task} />
 							</>
 					}
 				</Stack.Navigator>

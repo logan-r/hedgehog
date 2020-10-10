@@ -14,6 +14,14 @@ const Styles = StyleSheet.create({
         ...Typography.xxxl,
         marginBottom: 4
     },
+    h2: {
+        ...Typography.heading,
+        ...Typography.xxl
+    },
+    h3: {
+        ...Typography.heading,
+        ...Typography.xl
+    },
     subtitle: {
         ...Typography.p,
         ...Typography.lg,
@@ -25,6 +33,9 @@ const Styles = StyleSheet.create({
     text: {
         ...Typography.body,
         ...Typography.md
+    },
+    muted: {
+        ...Typography.muted
     }
 })
 
