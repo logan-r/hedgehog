@@ -17,7 +17,7 @@ export default function TopicBox({topic, name, description, onPress, clipart, cl
     const clipartDimensions = Image.resolveAssetSource(clipart)
 
     return (
-        <TouchableHighlight onPress={onPress} style={s.box} underlayColor={ 'transparent' }>
+        <TouchableHighlight onPress={onPress} style={s.box} underlayColor="transparent">
             <>
                 {
                     clipart &&

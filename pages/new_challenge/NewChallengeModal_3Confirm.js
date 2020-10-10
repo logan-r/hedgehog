@@ -1,10 +1,12 @@
 import React from 'react'
-import { Text, View, Image, Dimensions, ScrollView, TouchableHighlight, StyleSheet } from 'react-native'
+import { Text, View, Image, Dimensions, TouchableHighlight, StyleSheet } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { AntDesign } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 
 import { Styles, Base, Typography, Colors } from '../../styles'
 import BackArrow from '../../components/BackArrow'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 // Get screen dimensions to calculate size of circle background for header
 const { width } = Dimensions.get('window')
@@ -58,50 +60,72 @@ export default function NewChallengeModal_2Task({ navigation }) {
 					<Text style={[Styles.h3, {textAlign: 'center'}]}>Start Fitness Challenge</Text>
 				</View>
 				
-				<View style={{height: 90}}/>
+				<View style={{height: 90 - 26}}/>
+			</View>
+			
+			<View style={{width: '100%'}}>
+				<TouchableHighlight onPress={navigation.goBack} style={localStyles.bigField} underlayColor={Colors.black10}>
+					<>
+						<Text style={[Styles.text, Styles.muted]}>Every day for a week I will...</Text>
+						<View style={localStyles.bigFieldValue}>
+							<Text style={{...Typography.bodyMedium, ...Typography.xxxl}}>Go for a run</Text>
+							<AntDesign name="edit" size={20} color={Colors.black60} />
+						</View>
+					</>
+				</TouchableHighlight>
 				
-				<Text style={[Styles.text, {color: Colors.blue, ...Typography.md}]}>Every day for a week I will...</Text>
+				<TouchableHighlight onPress={() => false} style={localStyles.bigField} underlayColor={Colors.black10}>
+					<>
+						<Text style={[Styles.text, Styles.muted]}>Starting on...</Text>
+						<View style={localStyles.bigFieldValue}>
+							<Text style={{...Typography.bodyMedium, ...Typography.xxxl}}>Today, 10/9/2020</Text>
+							<AntDesign name="edit" size={20} color={Colors.black60} />
+						</View>
+					</>
+				</TouchableHighlight>
 			</View>
 
-			<ScrollView style={{width: '100%', marginTop: 6, borderTopWidth: 1, borderTopColor: Colors.black20}}>
-				<ChallengeItem title="Go for a run" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Go to the gym" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Go for a bike ride" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Practice a sport" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Do yoga" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Go for a run" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Go to the gym" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Go for a bike ride" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Practice a sport" onPress={() => navigation.push('NewChallenge: Step 3')} />
-				<ChallengeItem title="Do yoga" onPress={() => navigation.push('NewChallenge: Step 3')} />
-			</ScrollView>
+			<View style={{flex: 1}} />
+
+			<View style={{paddingHorizontal: Base.modalPadding.paddingHorizontal, marginVertical: 26, width: '100%'}}>
+				<TouchableOpacity onPress={() => navigation.navigate("Main")} style={{elevation: 10}}>
+					<LinearGradient colors={[Colors.marigold, Colors.autumn]} start={{x: 0.1, y: 0.1}} end={{x: 0.9, y: 0.9}} style={localStyles.button}>
+						<Text style={localStyles.buttonText}>Start Challenge</Text>
+					</LinearGradient>
+				</TouchableOpacity>
+			</View>
 
             <StatusBar style="auto" backgroundColor={Colors.black15} />
 		</View>
 	)
 }
 
-function ChallengeItem({ title, onPress }) {
-	return (
-		<TouchableHighlight onPress={onPress} style={localStyles.challengeItem} underlayColor={Colors.black10}>
-			<>
-				<Text style={[{...Typography.bodyMedium, ...Typography.lg}]}>{title}</Text>
-				<AntDesign name="right" size={16} color={Colors.black60} />
-			</>
-		</TouchableHighlight>
-	)
-}
-
 const localStyles = StyleSheet.create({
-	challengeItem: {
-		paddingHorizontal: Base.modalPadding.paddingHorizontal,
-		borderBottomWidth: 1,
-		borderBottomColor: Colors.black20,
-		paddingBottom: 15,
-		paddingTop: 17,
+	bigField: {
+		marginBottom: 12,
+		paddingTop: 18,
+		paddingBottom: 12,
+		paddingHorizontal: Base.modalPadding.paddingHorizontal
+	},
+
+	bigFieldValue: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center'
+		alignItems: 'center',
+		marginTop: 2
+	},
+
+	button: {
+		width: '100%',
+		borderRadius: 14,
+		padding: 14
+	},
+
+	buttonText: {
+		textAlign: 'center',
+		color: Colors.white,
+		...Typography.bodySemiBold,
+		...Typography.lg
 	}
 })
